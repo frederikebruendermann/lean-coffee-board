@@ -4,8 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create-user": "node create-user.js 'Test User' 99 'test@testuser.com'",
+    "build:create-user": "rm bin/create-user && npm run shebang:create-user && npm run chmod:create-user",
+    "shebang:create-user": "echo '#!/usr/bin/env node' >> bin/create-user && cat create-user.js >> bin/create-user",
+    "chmod:create-user": "chmod +x bin/create-user"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "inquirer": "^8.1.0",
+    "mongodb": "^3.6.9",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }
